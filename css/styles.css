@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styles */
+
+
+
+body {
+    background-color: #6589f9;
+    font-family: 'Bowlby One SC', cursive;
+}
+
+.start {
+    width: 100%;
+    height: 100vh;
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 6rem;
+    text-align: center;
+    color: yellow;
+}
+
+button {
+    font-size: 2rem;
+    padding: 1rem;
+    border: 8px solid yellow;
+    color: yellow;
+    background-color: #6589f9;
+    font-family: 'Bowlby One SC', cursive;
+    cursor: pointer;
+}
+
+.game {
+    width: 100%;
+    max-width: 1260px;
+    position: relative;
+    transform: translateY(-120vh);
+    margin: 0 auto;
+    display: none;
+    /* opacity: 0; */
+    transition: all 900ms ease-in-out;
+}
+
+.game.show {
+    /* opacity: 1; */
+    transform: translateY(0);
+}
+
+.game .menu {
+    width: 260px;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border: 6px solid yellow;
+}
+
+.game .menu p {
+    font-size: 1.6rem;
+    text-align: center;
+    color: yellow;
+}
+
+.game .menu .characters-completed {
+    height: calc(100vh - 14rem);
+    overflow-y: auto;
+}
+
+.game .menu .characters-completed div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 0.3rem;
+}
+
+.game .menu .characters-completed img {
+    height: 3rem;
+    margin-right: 0.5rem;
+}
+
+.game .menu .characters-completed p {
+    font-size: 1rem;
+}
+
+.game .menu p#clock {
+    font-size: 3.5rem;
+}
+
+.game .board {
+    width: calc(100% - 260px);
+    height: 100vh;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    left: 260px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.game-over,
+.winner {
+    width: 100%;
+    max-width: 1260px;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 400ms ease-in-out;
+    cursor: pointer;
+}
+
+.card .front {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    background-image: url('../img/LogoGemaStarlight.png');
+    background-size: contain;
+    backface-visibility: hidden;
+}
+
+.card .back {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    transform: rotateY(180deg);
+    background-size: contain;
+    backface-visibility: hidden;
+}
+
+.card.selected {
+    transform: rotateY(180deg);
+}
+
+.card.succesfull {
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+
+ 
+@media (max-width: 940px) { /* Mobile */
+    .start h1 {
+        font-size: 4rem;
+    }
+    .start button {
+        font-size: 2rem;
+    }
+    .game .menu {
+        width: 100px;
+        height: 390px;
+    }
+
+    .game .menu p {
+        font-size: 0.5rem;
+    }
+
+    .game .menu p#clock {
+        font-size: 1rem;
+    }
+
+    .game .board {
+        width: 744px;
+        margin-left: -160px;
+    }
+    
+    .card {
+        width: 80px;
+        height: 80px;
+    }
+
+    .card .front,
+    .card .back {
+        width: 80px;
+        height: 80px;
+    }
+    .game .menu .characters-completed {
+        height: calc(100vh - 6.4rem);
+        overflow-y: auto;
+    }
+    .game .menu .characters-completed p{
+        margin-top: 1rem;
+        font-size: 0.35rem;
+    }
+    .game .menu .characters-completed img {
+        height: 1.5rem;
+        margin-right: 0.2rem;
+    }
+} 
+@media (max-width: 390px) { /* Mobile */
+    .start h1 {
+        font-size: 4rem;
+    }
+    .start button {
+        font-size: 2rem;
+    }
+    .game .menu {
+        width: 100px;
+        height: 844px;
+    }
+
+    .game .menu p {
+        font-size: 0.5rem;
+    }
+
+    .game .menu p#clock {
+        font-size: 1rem;
+    }
+
+    .game .board {
+        width: 290px;
+        margin-left: -160px;
+    }
+    
+    .card {
+        width: 80px;
+        height: 80px;
+    }
+
+    .card .front,
+    .card .back {
+        width: 80px;
+        height: 80px;
+    }
+    .game .menu .characters-completed {
+        height: calc(100vh - 6.4rem);
+        overflow-y: auto;
+        display: block;
+        padding: 0;
+    }
+    .game .menu .characters-completed p{
+        margin-top: 5rem;
+        font-size: 0.35rem;
+    }
+    .game .menu .characters-completed img {
+        margin-top: 5rem;
+        height: 1.5rem;
+        margin-right: 0.2rem;
+    }
+} 
